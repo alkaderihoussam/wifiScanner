@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //wifiManager.setWifiEnabled(true);
 
 
-        if (wifi.isWifiEnabled()){
+        if (wifiManager.isWifiEnabled()){
 
         WifiInfo currentWifiNetworkInfo = wifiManager.getConnectionInfo();
 

@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         //wifiManager.setWifiEnabled(true);
 
+
+        if (wifi.isWifiEnabled()){
+
         WifiInfo currentWifiNetworkInfo = wifiManager.getConnectionInfo();
 
         ssidField.setText(currentWifiNetworkInfo.getSSID());
@@ -39,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         freqField.setText(Integer.toString(currentWifiNetworkInfo.getFrequency()));
         macField.setText(currentWifiNetworkInfo.getMacAddress());
         rssiField.setText(Integer.toString(currentWifiNetworkInfo.getRssi()));
+
+        }
+        else
+            Toast.makeText(getApplicationContext(),"enable the WIFI", Toast.LENGTH_LONG).show();
 
     }
 }
